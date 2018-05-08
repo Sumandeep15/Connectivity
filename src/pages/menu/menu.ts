@@ -18,11 +18,12 @@ export class MenuPage {
 
   rootPage: any = 'ContentPage';
 
-  pages: PageList;
+  pages1: PageList;
 
   constructor(public navCtrl: NavController) {
+   // alert("here")
     // used for an example of ngFor and navigation
-    this.pages = [
+    this.pages1 = [
       { title: 'Sign in', component: 'LoginPage' },
       { title: 'Signup', component: 'SignupPage' }
     ];

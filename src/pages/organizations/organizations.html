@@ -1,0 +1,39 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>Guruduwaras</ion-title>
+
+
+
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+    <ion-list>
+
+        <ion-row *ngFor="let item of currentItems">
+
+            <ion-col col-11>
+
+                <button ion-item (click)="openItem(item)">
+        <ion-avatar item-start>
+          <img [src]="item.imagePath" />
+        </ion-avatar>
+        <h2>{{item.name}}</h2>
+        <p>{{item.state}}</p>
+        <ion-note item-end *ngIf="item.note">{{item.name}}</ion-note>
+      </button>
+
+
+            </ion-col>
+            <ion-col col-1>
+
+                <button ion-button icon-only (click)="addItem(item.id)">
+        <ion-icon name="add"></ion-icon>
+                    </button>
+            </ion-col>
+        </ion-row>
+    </ion-list>
+</ion-content>
