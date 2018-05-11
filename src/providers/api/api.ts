@@ -1,3 +1,5 @@
+
+
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { StorageService } from '../storage/storageservice';
@@ -7,24 +9,31 @@ import { StorageService } from '../storage/storageservice';
  */
 @Injectable()
 export class Api {
-  url: string = 'http://localhost:2069';//"http://8.38.88.31:85";//
+  url: string = 'http://localhost:2069/';// 'http://8.38.88.31:85';//"http://8.38.88.31:85";//http://localhost:22222/
 
   constructor(public http: HttpClient, private storage: StorageService) {
   }
-  createAuthorizationHeader(headers: Headers) {
+  // createAuthorizationHeader(headers: HttpHeaders) {
+  //   let currentUser = this.storage.get("guser");
+  //   console.log(currentUser);
+  //   //alert(btoa(JSON.stringify(currentUser['user'])));
+  //   //  headers = headers .append('token', 'Amrik Singh');
+  //   headers = headers.append('token', 'sdsddsdssd');
+  //  // headers = headers.append('Authorization', 'Bearer ' + currentUser['access_token']);
+  //   console.log(headers);
+  //   return headers;
+  // }
+
+
+  createAuthorizationHeader(headers: HttpHeaders) {
     let currentUser = this.storage.get("guser");
+    console.log(currentUser);
 
-    //  headers.append('token', currentUser['token']);
-    //  headers.append('Authorization', btoa(currentUser['user'].Email + ":" + currentUser['user'].Password));
-
-    // let headers = new Headers({ 'Authorization': 'Bearer ' + currentUser.token });
-
-    headers.append('token', btoa(JSON.stringify(currentUser['user'])));
-    headers.append('Authorization', 'Bearer ' + currentUser['access_token']);
-//alert(JSON.stringify(headers))
-console.log(headers)
-///Not Append
+    headers = headers.append('token', btoa(JSON.stringify(currentUser['user'])));
+    headers = headers.append('Authorization', 'Bearer ' + currentUser['access_token']);
+    return headers;
   }
+
   get(endpoint: string, params?: any, reqOpts?: any) {
     if (!reqOpts) {
       reqOpts = {
@@ -41,8 +50,8 @@ console.log(headers)
       }
 
     }
-    let headers = new Headers();
-    this.createAuthorizationHeader(headers);
+    let headers = new HttpHeaders();
+    headers = this.createAuthorizationHeader(headers);
     reqOpts.headers = headers;
 
     return this.http.get(this.url + '/' + endpoint, reqOpts);
@@ -52,24 +61,24 @@ console.log(headers)
     return this.http.post(this.url + '/' + endpoint, body, reqOpts);
   }
   post(endpoint: string, body: any, reqOpts?: any) {
-
-    let headers = new Headers();
-    this.createAuthorizationHeader(headers);
-   // reqOpts.headers = headers;
+    reqOpts = { headers: {} };
+    let headers = new HttpHeaders();
+    headers = this.createAuthorizationHeader(headers);
+    reqOpts.headers = headers;
     return this.http.post(this.url + '/' + endpoint, body, reqOpts);
   }
 
   put(endpoint: string, body: any, reqOpts?: any) {
-    let headers = new Headers();
+    let headers = new HttpHeaders();
     this.createAuthorizationHeader(headers);
-  //  reqOpts.headers = headers;
+    //  reqOpts.headers = headers;
     return this.http.put(this.url + '/' + endpoint, body, reqOpts);
   }
 
   delete(endpoint: string, reqOpts?: any) {
-    let headers = new Headers();
+    let headers = new HttpHeaders();
     this.createAuthorizationHeader(headers);
-   // reqOpts.headers = headers;
+    // reqOpts.headers = headers;
     return this.http.delete(this.url + '/' + endpoint, reqOpts);
   }
 

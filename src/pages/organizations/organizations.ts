@@ -41,14 +41,15 @@ export class OrganizationsPage {
     console.log('ionViewDidLoad OrganizationsPage');
   }
 
-  addItem(id) {
-    alert(id)
-    this.AppUserModel.OrganizationId=id;
+  addItem(item) {
+
+    this.AppUserModel.OrganizationId=item.id;
    //alert(this.device.uuid);
    // this.account.UUID = this.device.uuid;
     // Attempt to login in through our User service
     this.Organizations.linkOrganization(this.AppUserModel).subscribe((resp) => {
       if (resp) {
+       //  this.currentItems.splice(item);
         let toast = this.toastCtrl.create({
         message: "Add successfully",
         duration: 3000,

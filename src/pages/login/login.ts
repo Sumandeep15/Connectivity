@@ -3,7 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, ToastController } from 'ionic-angular';
 
 import { User } from '../../providers/providers';
-import { MainPage ,LandingPage} from '../pages';
+import { MainPage ,LandingPage,HomePage} from '../pages';
 import { Device } from '@ionic-native/device';
 
 @IonicPage()
@@ -43,10 +43,10 @@ export class LoginPage {
     this.user.login(this.account).subscribe((resp:any) => {
 
       if (resp.status == 1) {
-        this.navCtrl.setRoot(MainPage);
+        this.navCtrl.setRoot(HomePage);
       }
     }, (err) => {
-      this.navCtrl.push(MainPage);
+      this.navCtrl.push(HomePage);
       // Unable to log in
       let toast = this.toastCtrl.create({
         message: this.loginErrorString,

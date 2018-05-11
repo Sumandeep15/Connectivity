@@ -7,17 +7,21 @@ import { Device } from '@ionic-native/device';
 @IonicPage()
 @Component({
   selector: 'page-signup',
-  templateUrl: 'signup.html'
+  templateUrl: 'signup.html',
+
 })
 export class SignupPage {
   // The account fields for the login form.
   // If you're using the username field with or without email, make
   // sure to add it to the type
-  account: { Name: string, Email: string, Mobile: number, UUID: string } = {
+  SignUp: any;
+  OTPSignUp: any;
+  account: { Name: string, Email: string, Mobile: number, UUID: string,OTP:string } = {
     Name: '',
     Email: '',
-    Mobile: 1234567890,
-    UUID: ''
+    Mobile: 1233223434,
+    UUID: '',
+    OTP:''
   };
 
   // Our translated text strings
@@ -31,22 +35,47 @@ export class SignupPage {
 
     this.translateService.get('SIGNUP_ERROR').subscribe((value) => {
       this.signupErrorString = value;
+      this.OTPSignUp = false;
+      this.SignUp = true;
     })
   }
 
   doSignup() {
- //alert(this.device.uuid);
+    //alert(this.device.uuid);
     this.account.UUID = this.device.uuid;
     // Attempt to login in through our User service
-    this.user.signup(this.account).subscribe((resp) => {
+    this.user.signup(this.account).subscribe((resp:any) => {
+      if (resp.status == 1) {
+        this.OTPSignUp = true;
+        this.SignUp = false;
+        //   this.navCtrl.push("LoginPage");
+      }
+    }, (err) => {
+
+
+      // Unable to sign up
+      let toast = this.toastCtrl.create({
+        message: this.signupErrorString,
+        duration: 3000,
+        position: 'top'
+      });
+      toast.present();
+    });
+  }
+
+  OTPSignup()
+  {
+    // this.account.UUID = this.device.uuid;
+    // Attempt to login in through our User service
+    this.user.OTPsignup(this.account).subscribe((resp:any) => {
       if (resp) {
-        this.navCtrl.push("LoginPage");
+         if (resp.status == 1) {
+          this.navCtrl.push("LoginPage");
+         }
       }
     }, (err) => {
 
       this.navCtrl.push("LoginPage");
-
-      // Unable to sign up
       let toast = this.toastCtrl.create({
         message: this.signupErrorString,
         duration: 3000,

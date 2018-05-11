@@ -19,7 +19,7 @@ import { MyApp } from './app.component';
 import { Organizations } from '../providers/providers';
 import { Device } from '@ionic-native/device';
 import { StorageService } from '../providers/providers';
-
+import { Connections } from '../providers/providers';
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
 export function createTranslateLoader(http: HttpClient) {
@@ -74,7 +74,8 @@ export function provideSettings(storage: Storage) {
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     Organizations,
     Device,
-    StorageService
+    StorageService,
+    Connections
   ]
 })
 export class AppModule { }

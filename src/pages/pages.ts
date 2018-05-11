@@ -11,3 +11,5 @@ export const Tab2Root = 'SearchPage';
 export const Tab3Root = 'SettingsPage';
 export const HomePage = 'OrganizationsPage';
 export const LandingPage = 'LandingPage';
+export const ConnectionsPage = 'ConnectionsPage';
+export const LoginPage='LoginPage'

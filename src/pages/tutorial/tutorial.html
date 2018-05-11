@@ -1,25 +1,316 @@
-<ion-header no-shadow>
-  <ion-navbar>
-    <ion-buttons end *ngIf="showSkip">
-      <button ion-button (click)="startApp()" color="primary">{{ 'TUTORIAL_SKIP_BUTTON' | translate}}</button>
-    </ion-buttons>
-  </ion-navbar>
-</ion-header>
+<div class="masthead pdng-stn1">
+    <div id="menu" class="panel" role="navigation">
+        <div class="wrap-content">
+            <!-- /menu -->
+            <div class="profile-menu text-left">
+                <div class="pro-menu">
+                    <ul>
+                        <li><a class="active" href="gurudwara-listing.html">Home</a></li>
+                        <li><a href="#">My Connections</a></li>
+                        <li><a href="#">Profile</a></li>
+                        <li><a href="join-group.html">New Connections</a></li>
+                        <li><a href="#">Settings</a></li>
+                        <li><a href="#">Help</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- //menu -->
+        </div>
+    </div>
+    <div class="phone-box wrap push" id="home">
+        <div class="menu-notify">
+            <div class="profile-left">
+                <a href="#menu" class="menu-link"><i class="fa fa-bars"></i></a>
+            </div>
 
-<ion-content no-bounce>
-  <ion-slides pager="true" dir="{{dir}}" (ionSlideWillChange)="onSlideChangeStart($event)">
-    <ion-slide *ngFor="let slide of slides">
-      <img [src]="slide.image" class="slide-image" />
-      <h2 class="slide-title" [innerHTML]="slide.title"></h2>
-      <p [innerHTML]="slide.description"></p>
-    </ion-slide>
-    <ion-slide>
-      <img src="assets/img/ica-slidebox-img-4.png" class="slide-image" />
-      <h2 class="slide-title">{{ 'TUTORIAL_SLIDE4_TITLE' | translate }}</h2>
-      <button ion-button icon-end large clear (click)="startApp()">
-        {{ 'TUTORIAL_CONTINUE_BUTTON' | translate }}
-        <ion-icon name="arrow-forward"></ion-icon>
-      </button>
-    </ion-slide>
-  </ion-slides>
-</ion-content>
+            <div class="Profile-right">
+                <a href="" data-toggle="modal" data-target="#modalLoginAvatar"> <i class="fa fa-search"></i></a>
+                <!-- modal -->
+                <!--Modal: Login with Avatar Form-->
+                <div class="modal fade" id="modalLoginAvatar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog cascading-modal modal-avatar modal-sm" role="document">
+                        <!--Content-->
+                        <div class="modal-content">
+
+                            <!--Body-->
+                            <div class="modal-body text-center mb-1">
+
+                                <div class="md-form ml-0 mr-0">
+                                    <input type="text" type="text" id="form29" class="form-control form-control-sm validate ml-0">
+                                    <label data-error="wrong" data-success="right" for="form29" class="ml-0">Enter Keyword</label>
+                                </div>
+
+                                <div class="text-center mt-4">
+                                    <button class="btn btn-black mt-1 btn-sm">Search <i class="fa fa-sign-in ml-1"></i></button>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!--/.Content-->
+                    </div>
+                </div>
+                <!--Modal: Login with Avatar Form-->
+
+
+
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <!-- banner -->
+
+
+    </div>
+</div>
+<section class="tabs-wrapper">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs nav-justified indigo" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#panel5" role="tab">
+                    Groups</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link unactive" data-toggle="tab" href="#panel6" role="tab">
+                    Events</a>
+        </li>
+    </ul>
+    <!-- Nav tabs -->
+    <!-- Tab panels -->
+    <div class="tab-content">
+        <!--Panel 1-->
+        <div class="tab-pane fade in show active" id="panel5" role="tabpanel">
+            <!-- Nav tabs -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="card z-depth-1-half mg-top-30">
+                            <div class="card-body">
+                                <div class="block">
+                                    <ul class="widget-list">
+                                        <li>
+                                            <figure>
+                                                <a href="#">
+                                                    <img alt="8th-post-featured" class="tabs-thumb wp-post-image group-t-img" src="images/05.jpg">
+                                                </a>
+                                            </figure>
+                                            <div class="inner-content">
+                                                <h5><a href="#">Gurudwara Singh sabha</a></h5>
+                                                <span>Surrey ( Canada )</span>
+                                            </div>
+                                            <div class="share-btn">
+                                                <a href="events-groups.html" class="btn btn-info btn-sm favourite-btns share-btns pull-left group-btns">Join Now </a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card z-depth-1-half mg-top-36">
+                            <div class="card-body">
+                                <div class="block">
+                                    <ul class="widget-list">
+                                        <li>
+                                            <figure>
+                                                <a href="#">
+                                                    <img alt="8th-post-featured" class="tabs-thumb wp-post-image group-t-img" src="images/05.jpg">
+                                                </a>
+                                            </figure>
+                                            <div class="inner-content">
+                                                <h5><a href="#">Gurudwara Singh sabha</a></h5>
+                                                <span>Surrey ( Canada )</span>
+                                            </div>
+                                            <div class="share-btn">
+                                                <a href="events-groups.html" class="btn btn-info btn-sm favourite-btns share-btns pull-left group-btns">Join Now </a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card z-depth-1-half mg-top-36">
+                            <div class="card-body">
+                                <div class="block">
+                                    <ul class="widget-list">
+                                        <li>
+                                            <figure>
+                                                <a href="#">
+                                                    <img alt="8th-post-featured" class="tabs-thumb wp-post-image group-t-img" src="images/05.jpg">
+                                                </a>
+                                            </figure>
+                                            <div class="inner-content">
+                                                <h5><a href="#">Gurudwara Singh sabha</a></h5>
+                                                <span>Surrey ( Canada )</span>
+                                            </div>
+                                            <div class="share-btn">
+                                                <a href="events-groups.html" class="btn btn-info btn-sm favourite-btns share-btns pull-left group-btns">Join Now </a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card z-depth-1-half mg-top-36 mg-bottom-30">
+                            <div class="card-body">
+                                <div class="block">
+                                    <ul class="widget-list">
+                                        <li>
+                                            <figure>
+                                                <a href="#">
+                                                    <img alt="8th-post-featured" class="tabs-thumb wp-post-image group-t-img" src="images/05.jpg">
+                                                </a>
+                                            </figure>
+                                            <div class="inner-content">
+                                                <h5><a href="#">Gurudwara Singh sabha</a></h5>
+                                                <span>Surrey ( Canada )</span>
+                                            </div>
+                                            <div class="share-btn">
+                                                <a href="events-groups.html" class="btn btn-info btn-sm favourite-btns share-btns pull-left group-btns">Join Now </a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="back-btn-wrapper">
+                            <a href="join-group.html" class="btn btn-default z-depth-2"><i class="fa fa-arrow-left"></i> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Nav tabs -->
+        </div>
+        <!--/.Panel 1-->
+        <!--Panel 2-->
+        <div class="tab-pane fade" id="panel6" role="tabpanel">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="card z-depth-1-half mg-top-60">
+                            <div class="card-body">
+                                <div class="block">
+                                    <ul class="widget-list">
+                                        <li>
+                                            <div class="date-wrapper">
+                                                <h4 class="text-center">15 </h4>
+                                                <h6 class="text-center">Nov</h6>
+                                                <!--<p class="text-center">Nov</p>-->
+                                            </div>
+                                            <div class="inner-content event-name">
+                                                <h5><a href="event-details.html">Lorem Ipsum is simply dummy</a></h5>
+                                                <p>Surrey ( Canada ) <span>9:30am - 12:30pm</span></p>
+                                                <p><b>Shri Amb sahib <span>( India )</span></b></p>
+                                            </div>
+                                            <div class="share-btn">
+                                                <a href="#" class="btn btn-primary btn-sm custom-btns share-btns pull-left"><i class="fa fa-location-arrow"></i> </a>
+                                            </div>
+                                            <!--<div class="share-btn">-->
+                                            <!--<a href="#" class="btn btn-secondary btn-sm shared-btns share-btns pull-left"><i class="fa fa-share-alt"></i> </a>-->
+                                            <!--</div>-->
+                                            <!--<div class="share-btn">-->
+                                            <!--<a href="#" class="btn btn-danger btn-sm favourite-btns share-btns pull-left"><i class="fa fa-star"></i> </a>-->
+                                            <!--</div>-->
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card z-depth-1-half mg-top-62">
+                            <div class="card-body">
+                                <div class="block">
+                                    <ul class="widget-list">
+                                        <li>
+                                            <div class="date-wrapper">
+                                                <h4 class="text-center">21 </h4>
+                                                <h6 class="text-center">Dec</h6>
+                                                <!--<p class="text-center">Nov</p>-->
+                                            </div>
+                                            <div class="inner-content event-name">
+                                                <h5><a href="#">Lorem Ipsum is simply dummy</a></h5>
+                                                <p>Surrey ( Canada ) <span>9:30am - 12:30pm</span></p>
+                                                <p><b>Shri Amb sahib <span>( India )</span></b></p>
+                                            </div>
+                                            <div class="share-btn">
+                                                <a href="#" class="btn btn-primary btn-sm custom-btns share-btns pull-left"><i class="fa fa-location-arrow"></i> </a>
+                                            </div>
+                                            <!--<div class="share-btn">-->
+                                            <!--<a href="#" class="btn btn-secondary btn-sm shared-btns share-btns pull-left"><i class="fa fa-share-alt"></i> </a>-->
+                                            <!--</div>-->
+                                            <!--<div class="share-btn">-->
+                                            <!--<a href="#" class="btn btn-danger btn-sm favourite-btns share-btns pull-left"><i class="fa fa-star"></i> </a>-->
+                                            <!--</div>-->
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card z-depth-1-half mg-top-62">
+                            <div class="card-body">
+                                <div class="block">
+                                    <ul class="widget-list">
+                                        <li>
+                                            <div class="date-wrapper">
+                                                <h4 class="text-center">27 </h4>
+                                                <h6 class="text-center">Dec</h6>
+                                                <!--<p class="text-center">Nov</p>-->
+                                            </div>
+                                            <div class="inner-content event-name">
+                                                <h5><a href="#">Lorem Ipsum is simply dummy</a></h5>
+                                                <p>Surrey ( Canada ) <span>9:30am - 12:30pm</span></p>
+                                                <p><b>Shri Amb sahib <span>( India )</span></b></p>
+                                            </div>
+                                            <div class="share-btn">
+                                                <a href="#" class="btn btn-primary btn-sm custom-btns share-btns pull-left"><i class="fa fa-location-arrow"></i> </a>
+                                            </div>
+                                            <!--<div class="share-btn">-->
+                                            <!--<a href="#" class="btn btn-secondary btn-sm shared-btns share-btns pull-left"><i class="fa fa-share-alt"></i> </a>-->
+                                            <!--</div>-->
+                                            <!--<div class="share-btn">-->
+                                            <!--<a href="#" class="btn btn-danger btn-sm favourite-btns share-btns pull-left"><i class="fa fa-star"></i> </a>-->
+                                            <!--</div>-->
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card z-depth-1-half mg-top-62 mg-bottom-30">
+                            <div class="card-body">
+                                <div class="block">
+                                    <ul class="widget-list">
+                                        <li>
+                                            <div class="date-wrapper">
+                                                <h4 class="text-center">29 </h4>
+                                                <h6 class="text-center">Dec</h6>
+                                                <!--<p class="text-center">Nov</p>-->
+                                            </div>
+                                            <div class="inner-content event-name">
+                                                <h5><a href="#">Lorem Ipsum is simply dummy</a></h5>
+                                                <p>Surrey ( Canada ) <span>9:30am - 12:30pm</span></p>
+                                                <p><b>Shri Amb sahib <span>( India )</span></b></p>
+                                            </div>
+                                            <div class="share-btn">
+                                                <a href="#" class="btn btn-primary btn-sm custom-btns share-btns pull-left"><i class="fa fa-location-arrow"></i> </a>
+                                            </div>
+                                            <!--<div class="share-btn">-->
+                                            <!--<a href="#" class="btn btn-secondary btn-sm shared-btns share-btns pull-left"><i class="fa fa-share-alt"></i> </a>-->
+                                            <!--</div>-->
+                                            <!--<div class="share-btn">-->
+                                            <!--<a href="#" class="btn btn-danger btn-sm favourite-btns share-btns pull-left"><i class="fa fa-star"></i> </a>-->
+                                            <!--</div>-->
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="advertisement-wrapper">
+                            Advdertisement Here..
+                        </div>
+                        <div class="back-btn-wrapper">
+                            <a href="join-group.html" class="btn btn-default z-depth-2"><i class="fa fa-arrow-left"></i> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/.Panel 2-->
+    </div>
+    <!-- Tab panels -->
+</section>

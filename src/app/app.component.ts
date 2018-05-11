@@ -4,38 +4,19 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { TranslateService } from '@ngx-translate/core';
 import { Config, Nav, Platform } from 'ionic-angular';
 
-import { FirstRunPage,HomePage } from '../pages/pages';
+import { FirstRunPage,HomePage,ConnectionsPage,LoginPage } from '../pages/pages';
 import { Settings } from '../providers/providers';
 
 @Component({
-  template: `<ion-menu [content]="content">
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>Pages</ion-title>
-      </ion-toolbar>
-    </ion-header>
+   templateUrl: 'app.html'
 
-    <ion-content>
-      <ion-list>
-        <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-          {{p.title}}
-        </button>
-      </ion-list>
-    </ion-content>
-
-  </ion-menu>
-  <ion-nav #content [root]="rootPage"></ion-nav>`
 })
 export class MyApp {
-  rootPage = FirstRunPage;
+  rootPage = LoginPage;
 
   @ViewChild(Nav) nav: Nav;
 
-  pages: any[] = [
-    { title: 'Guruduwaras', component:HomePage },
-    { title: 'Connections', component: 'WelcomePage' },
-  { title: 'Logout', component: 'WelcomePage' },
-  ]
+
 
   constructor(private translate: TranslateService, platform: Platform, settings: Settings, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen) {
     platform.ready().then(() => {

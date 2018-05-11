@@ -70,6 +70,22 @@ export class User {
     return seq;
   }
 
+
+ OTPsignup(accountInfo: any) {
+
+    let seq = this.api.postsignup('api/gurudwaraservices/CheckOTP', accountInfo).share();
+
+    seq.subscribe((res: any) => {
+      // If the API returned a successful response, mark the user as logged in
+      if (res.status == 1) {
+        this._loggedIn(res);
+      }
+    }, err => {
+      console.error('ERROR', err);
+    });
+
+    return seq;
+  }
   /**
    * Log the user out, which forgets the session
    */
