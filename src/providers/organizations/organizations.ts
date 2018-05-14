@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 
 import { Item } from '../../models/item';
 import { Api } from '../api/api';
+import { StorageService } from '../storage/storageservice';
 @Injectable()
 export class Organizations {
 
-  constructor(public api: Api) { }
+  constructor(public api: Api, private cacheService: StorageService) { }
 
  list() {
+    // this.cacheService.get();
   //  alert(params.id)
     return this.api.get('api/gurudwaraservices/getAllOrganizationsByCId').share();
   }

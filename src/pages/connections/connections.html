@@ -1,39 +1,45 @@
-<ion-header>
-
-    <ion-navbar>
-        <ion-title>Guruduwaras</ion-title>
-
-
-
-    </ion-navbar>
-
-</ion-header>
-
 <ion-content>
 
-    <ion-list>
+    <section class="listing-wrapper mg-top-30">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="card z-depth-1-half mg-top-30" *ngFor="let item of currentItems">
+                        <div class="card-body">
+                            <div class="block">
+                                <ul class="widget-list">
+                                    <li>
+                                        <figure>
+                                            <a href="#">
+                                                <img alt="8th-post-featured" class="tabs-thumb wp-post-image" src="{{item.imagePath}}">
+                                            </a>
+                                        </figure>
+                                        <div class="inner-content">
+                                            <h5><a href="#">{{item.name}}</a></h5>
+                                            <span>{{item.state}}</span>
+                                        </div>
+                                        <div class="btn-group-sm">
+                                            <button class="btn btn-primary btn-sm btn-sm custom-btn pull-left font-size-13" (click)="viewEvents(item.id)"> Events</button>
+                                            <button class="btn btn-default btn-sm btn-sm custom-btn pull-left font-size-13" (click)="viewSchedule(item.id)">Daily Schedule</button>
+                                        </div>
+                                        <div class="share-btn">
+                                            <a href="#" class="btn btn-primary btn-sm custom-btns share-btns pull-left z-depth-2"><i class="fa fa-location-arrow"></i> </a>
+                                        </div>
+                                        <!--<div class="share-btn">-->
+                                        <!--<a href="#" class="btn btn-secondary btn-sm shared-btns share-btns pull-left z-depth-2"><i class="fa fa-share-alt"></i> </a>-->
+                                        <!--</div>-->
+                                        <div class="share-btn">
+                                            <a href="#" class="btn btn-info btn-sm favourite-btns share-btns pull-left z-depth-2"><i class="fa fa-star"></i> </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
 
-        <ion-row *ngFor="let item of currentItems">
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <ion-col col-11>
-
-                <button ion-item (click)="openItem(item)">
-        <ion-avatar item-start>
-          <img [src]="item.imagePath" />
-        </ion-avatar>
-        <h2>{{item.name}}</h2>
-        <p>{{item.state}}</p>
-        <ion-note item-end *ngIf="item.note">{{item.name}}</ion-note>
-      </button>
-
-
-            </ion-col>
-            <ion-col col-1>
-
-                <button ion-button icon-only (click)="removeItem(item)">
-        <ion-icon name="add"></ion-icon>
-                    </button>
-            </ion-col>
-        </ion-row>
-    </ion-list>
 </ion-content>

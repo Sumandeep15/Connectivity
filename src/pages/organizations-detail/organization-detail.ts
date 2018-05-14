@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import * as $ from 'jquery';
 import { Items } from '../../providers/providers';
 
 @IonicPage()
@@ -9,11 +9,25 @@ import { Items } from '../../providers/providers';
   templateUrl: 'organization-detail.html'
 })
 export class OrganizationDetailPage {
-  item: any;
+ // item: any;
+  currentItem: any;
+  AppUserModel: { OrganizationId: any } = {
 
-  constructor(public navCtrl: NavController, navParams: NavParams, items: Items) {
-    this.item = navParams.get('item') || items.defaultItem;
-   // alert(JSON.stringify(this.item ))
+    OrganizationId: 0
+  };
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.AppUserModel = this.navParams.get('record');
+   // alert(JSON.stringify(this.AppUserModel))
+    // this.Events.GetCompanyActivity(this.AppUserModel).subscribe((resp: any) => {
+    this.currentItem = this.AppUserModel;
+    console.log(this.currentItem);
+    //  }, (err) => {
+
+    // });
   }
-
+ ionViewDidLoad() {
+    $(".menu2hide").show();
+     $(".menu1hide").hide();
+    // console.log('ionViewDidLoad ConnectionsPage');
+  }
 }

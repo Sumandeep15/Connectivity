@@ -1,8 +1,12 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, ToastController, NavParams } from 'ionic-angular';
-import { Connections } from '../../providers/providers';
+
+import { Connections, User } from '../../providers/providers';
 import { Device } from '@ionic-native/device';
+import { EventsPage, SchedulePage } from '../pages';
+import * as $ from 'jquery'
+
 /**
 /**
  * Generated class for the ConnectionsPage page.
@@ -27,10 +31,17 @@ export class ConnectionsPage {
     public navCtrl: NavController,
     public toastCtrl: ToastController,
     public translateService: TranslateService,
-
+    public user: User,
     private device: Device) {
     this.Connections.GetConnections().subscribe((resp: any) => {
-      this.currentItems = resp.data;
+      if (!user.authenticated) {
+        this.navCtrl.push("LoginPage");
+      }
+      else {
+       // alert("hnji")
+        //$("#settingsTable").append();
+        this.currentItems = resp.data;
+      }
       //alert(  JSON.stringify( this.currentItems));
     }, (err) => {
 
@@ -38,8 +49,19 @@ export class ConnectionsPage {
   }
 
   ionViewDidLoad() {
+    $(".menu1hide").show();
+     $(".menu2hide").hide();
     // console.log('ionViewDidLoad ConnectionsPage');
   }
+
+  viewEvents(id) {
+    this.navCtrl.push(EventsPage, { 'id': id })
+  }
+  viewSchedule(id) {
+    this.navCtrl.push(SchedulePage, { 'id': id })
+  }
+
+
   removeItem(item) {
 
     this.AppUserModel.OrganizationId = item.id;

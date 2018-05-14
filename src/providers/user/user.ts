@@ -26,6 +26,9 @@ import { StorageService } from '../storage/storageservice';
 @Injectable()
 export class User {
   _user: any;
+  private isLoggedIn = false;
+  public menu1: false;
+  public menu2: false;
 
   constructor(public api: Api, private cacheService: StorageService) { }
 
@@ -33,12 +36,16 @@ export class User {
    * Send a POST request to our login endpoint with the data
    * the user entered on the form.
    */
+  authenticated(): boolean {
+    return this.isLoggedIn;
+  }
   login(accountInfo: any) {
     let seq = this.api.postsignup('api/gurudwaraservices/login', accountInfo).share();
 
     seq.subscribe((res: any) => {
       // If the API returned a successful response, mark the user as logged in
       if (res.status == 1) {
+        this.isLoggedIn = true;
         this.cacheService.add("guser", res.data);
         this._loggedIn(res);
       } else {
@@ -71,14 +78,14 @@ export class User {
   }
 
 
- OTPsignup(accountInfo: any) {
+  OTPsignup(accountInfo: any) {
 
     let seq = this.api.postsignup('api/gurudwaraservices/CheckOTP', accountInfo).share();
 
     seq.subscribe((res: any) => {
       // If the API returned a successful response, mark the user as logged in
       if (res.status == 1) {
-        this._loggedIn(res);
+        //  this._loggedIn(res);
       }
     }, err => {
       console.error('ERROR', err);
@@ -90,7 +97,10 @@ export class User {
    * Log the user out, which forgets the session
    */
   logout() {
+    this.isLoggedIn = false;
     this._user = null;
+    let seq = this.api.post('api/gurudwaraservices/Logout', null).share();
+
   }
 
   /**
@@ -98,5 +108,12 @@ export class User {
    */
   _loggedIn(resp) {
     this._user = resp.user;
+  }
+
+  isloggedIn() {
+    if (this._user)
+      return true;
+    else
+      return false;
   }
 }
