@@ -393,10 +393,14 @@
 		right: 2%;
 		border-radius: 50%;
 		padding: 15px 18px;
+		z-index: 999;
 	}
 	.back-btn-wrapper a i {
         font-size: 20px;
-        }
+		}
+	.favourite-btns.share-btns.view-btns {
+		right: 22% !important;
+	}
 	.divider {
 		background: #cfcbcb;
 		height: 1px;

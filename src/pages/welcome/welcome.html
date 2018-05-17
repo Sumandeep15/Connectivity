@@ -7,7 +7,8 @@
     </div>
   </div>
   <div padding>
-    <button ion-button block (click)="signup()">{{ 'SIGNUP' | translate }}</button>
-    <button ion-button block (click)="login()" class="login">{{ 'LOGIN' | translate }}</button>
+    <button ion-button block class="custom-btn" (click)="signup()">{{ 'SIGNUP' | translate }}</button>
+    <button ion-button block class="custom-btn login" (click)="login()">{{ 'LOGIN' | translate }}</button>
+    <button ion-button block class="custom-btn login" (click)= "login2()">{{ 'LOGIN2' | translate }}</button>
   </div>
 </ion-content>

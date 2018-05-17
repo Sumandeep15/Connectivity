@@ -21,10 +21,12 @@ export class WelcomePage {
       this.menu.enable(false, 'menu2');
    }
 
-  login() {
-    this.navCtrl.push('LoginPage');
+  login2() {
+    this.navCtrl.push('Login2Page');//LoginPage
   }
-
+  login() {
+    this.navCtrl.push('LoginPage');//LoginPage
+  }
   signup() {
     this.navCtrl.push('SignupPage');
   }

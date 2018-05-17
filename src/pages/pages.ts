@@ -20,4 +20,6 @@ export const NewsPage='NewsPage'
 export const ServicesPage='ServicesPage'
 export const OrganizationDetailPage='OrganizationDetailPage'
 export const MenuPage='MenuPage'
+export const Login2Page = 'Login2Page'
+
 
